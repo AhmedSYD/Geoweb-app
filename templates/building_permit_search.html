@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Building Permit</title>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/styles/building_permit_search.css">
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+
+
+    </head>
+    <body> 
+        <div class="container">
+            <div id="search_box">
+
+                <div class="header">
+                    <h2> Search for building permits</h2>
+                    
+                </div>
+    
+                <form action="{{url_for('after_searching')}}" method="POST">
+    
+                    <div class="search_group">
+                        
+                        <label for="searchFilter">Issue Dates:</label>
+                        <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+                        <button type="submit">Search</button>
+    
+
+                    </div>
+                    
+                    <!-- <button type="submit">Search</button> -->
+    
+               </form>
+    
+            </div>
+
+            <div id="mapid"></div>
+            <script src="../static/js/building_permit_search.js"></script>
+
+            <!-- <script src="test.js"></script> -->
+            
+
+        </div>
+    </body>
+</html>
