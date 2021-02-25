@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Building Permit</title>
-
+        
         
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -20,42 +20,85 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
 
 
     </head>
     <body> 
-        <div class="container">
-            <div id="search_box">
+        <div id="mapid"></div>
+        <div id="search_box">
 
-                <div class="header">
-                    <h2> Search for building permits</h2>
-                    
-                </div>
-    
-                <form action="{{url_for('after_searching')}}" method="POST">
-    
-                    <div class="search_group">
-                        
-                        <label for="searchFilter">Issue Dates:</label>
-                        <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-
-                        <button type="submit">Search</button>
-    
-
-                    </div>
-                    
-                    <!-- <button type="submit">Search</button> -->
-    
-               </form>
-    
+            <div class="header">
+                <h2> Search for building permits</h2>
+                
             </div>
 
-            <div id="mapid"></div>
-            <script src="../static/js/building_permit_search.js"></script>
+            <form action="{{url_for('after_searching')}}" method="POST">
+
+                <div class="search_group">
+                    
+                    <label for="searchFilter">Issue Dates:</label>
+                    <input type="text" name="daterange" value="{{date_value}}" />
+
+                    <button type="submit" id="submit">Search</button>
+
+
+                </div>
+                
+                <!-- <button type="submit">Search</button> -->
+
+            </form>
+
+        </div>
+            
+            <!-- <div id="mapid"></div> -->
+
+            <script src="{{url_for('static', filename='js/building_permit_search.js') }}"></script>
+            
+            {% if not(geocode== "") %} 
+                <script type="text/javascript">
+                function onEachFeature(feature, layer) {
+                // does this feature have a property named popupContent?
+                    if (feature.properties ) {
+                        var popcontent="issueddate: "+feature.properties.issueddate+"<br>"+
+                                       "workclassgroup: "+feature.properties.workclassgroup+"<br>"+
+                                       "contractorname: "+feature.properties.contractorname+"<br>"+
+                                       "communityname: "+feature.properties.communityname+"<br>"+
+                                       "originaladdress: "+feature.properties.originaladdress
+                        layer.bindPopup(popcontent);
+                    }
+                }
+                    var json_date= {{geocode|tojson|safe}};
+                    console.log(typeof json_date)
+                    console.log("json data"+json_date);
+                    L.geoJSON(json_date.features,{onEachFeature: onEachFeature}).addTo(mymap)
+                    // var oms = new OverlappingMarkerSpiderfier(mymap);
+                    // var popup = new L.Popup();
+                    // oms.addListener('click', function(marker) {
+                    // popup.setContent(marker.desc);
+                    // popup.setLatLng(marker.getLatLng());
+                    // mymap.openPopup(popup);
+                    // });
+                    // oms.addListener('spiderfy', function(markers) {
+                    // map.closePopup();
+                    // });
+                    // oms.addMarker(json_date.features);
+
+
+                    for (i=0; i<json_date.features.length;i++){
+                        console.log("json data geometry:"+json_date.features[i].geometry.coordinates)
+                        console.log("json data properties issueddate:"+json_date.features[i].properties.issueddate)
+
+                    }
+
+                </script>
+            {% endif %}
+            
+
 
             <!-- <script src="test.js"></script> -->
             
 
-        </div>
+        
     </body>
 </html>
