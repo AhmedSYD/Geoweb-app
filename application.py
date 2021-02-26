@@ -10,7 +10,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def search():
-    return render_template("building_permit_search.html", geocode="", date_value="01/01/2020 - 01/15/2020")
+    return render_template("building_permit_search.html", geocode="", date_value="01/01/2020 - 01/15/2020", initial_page=True)
 
 @app.route("/search", methods=["POST","GET"]) 
 def after_searching():
@@ -35,7 +35,7 @@ def after_searching():
         else:
             js_data=""
     
-    return render_template("building_permit_search.html",geocode=js_data,date_value=dateRange)
+    return render_template("building_permit_search.html",geocode=js_data,date_value=dateRange, initial_page=False)
 
 if __name__== "__main__" :
     app.run(debug=True)

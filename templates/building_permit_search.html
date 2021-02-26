@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Building Permit</title>
-        
+        <link rel="shortcut icon" href="#">
         
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -21,6 +21,11 @@
         crossorigin=""></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
 
 
     </head>
@@ -56,48 +61,23 @@
             <script src="{{url_for('static', filename='js/building_permit_search.js') }}"></script>
             
             {% if not(geocode== "") %} 
-                <script type="text/javascript">
-                function onEachFeature(feature, layer) {
-                // does this feature have a property named popupContent?
-                    if (feature.properties ) {
-                        var popcontent="issueddate: "+feature.properties.issueddate+"<br>"+
-                                       "workclassgroup: "+feature.properties.workclassgroup+"<br>"+
-                                       "contractorname: "+feature.properties.contractorname+"<br>"+
-                                       "communityname: "+feature.properties.communityname+"<br>"+
-                                       "originaladdress: "+feature.properties.originaladdress
-                        layer.bindPopup(popcontent);
-                    }
-                }
-                    var json_date= {{geocode|tojson|safe}};
-                    console.log(typeof json_date)
-                    console.log("json data"+json_date);
-                    L.geoJSON(json_date.features,{onEachFeature: onEachFeature}).addTo(mymap)
-                    // var oms = new OverlappingMarkerSpiderfier(mymap);
-                    // var popup = new L.Popup();
-                    // oms.addListener('click', function(marker) {
-                    // popup.setContent(marker.desc);
-                    // popup.setLatLng(marker.getLatLng());
-                    // mymap.openPopup(popup);
-                    // });
-                    // oms.addListener('spiderfy', function(markers) {
-                    // map.closePopup();
-                    // });
-                    // oms.addMarker(json_date.features);
-
-
-                    for (i=0; i<json_date.features.length;i++){
-                        console.log("json data geometry:"+json_date.features[i].geometry.coordinates)
-                        console.log("json data properties issueddate:"+json_date.features[i].properties.issueddate)
-
-                    }
-
-                </script>
+               <script type="text/javascript" src="{{url_for('static', filename='js/building_permits_after_searching.js') }}"></script>
+               <script type="text/javascript">
+                 start_marking({{geocode|tojson|safe}});
+               </script>
+            
             {% endif %}
+            {% if not(initial_page) and (geocode== "") %}
+            <script type="text/javascript">
+                alert("No building permits for this date range.");
+              </script>
+            {% endif %}
+
+
+            
             
 
 
-            <!-- <script src="test.js"></script> -->
-            
 
         
     </body>
