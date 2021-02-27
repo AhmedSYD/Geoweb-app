@@ -20,6 +20,9 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 - CSS
 - python flask 
 - Javascript
+- Leeflet
+- GeoJSON
+- Open Calgary API dataset
 
 ## How to use the webpage:
 * After installing all libraries required in your evironment, run `application.py` in any IDE you like.
@@ -38,10 +41,19 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 ![after_searching](https://user-images.githubusercontent.com/26576895/109386784-d4633180-7905-11eb-991e-0edbccbb7fbc.JPG)
 
 * By clicking on any cluster, the map will zoom in automatically to get the neighboring markers or other clusters. if you click on any new cluster that is created, the map will zoom in to get other markers and cluster and so on till you get your desired marker. 
-* if you click on any marker, you will get the popcontent message that includes all information about `issueddate`, `workclassgroup`, `contractorname`, `communityname` and `originaladdress`, as you see below.
+* If you click on any marker, you will get the popcontent message that includes all information about `issueddate`, `workclassgroup`, `contractorname`, `communityname` and `originaladdress`, as you see below.
 
 ![popcontent](https://user-images.githubusercontent.com/26576895/109387046-8e0ed200-7907-11eb-8677-23f57ff4727a.JPG)
 
+* Sometimes, some markers are overlapping, i.e., multiple building permits located at the same location. Therefore, I handled it by using Leaflet Plug-in, in which all overlapping markers are integrated together in a single marker and if you click on this marker, you will get all overlapping markers inside it, as you see in the image below. 
+
+![overlapping_markers](https://user-images.githubusercontent.com/26576895/109388432-a8e54480-790f-11eb-9e23-a04ece1e500d.JPG)
+
+* Finally, if you'd like to get another building permits in another date range, choose the new date range and click on **search** again and you will find that the map is refreshed and display the new matching result.
+
+## what’s contained in each file:
+- `application.py`:
+- 
 
 
 
