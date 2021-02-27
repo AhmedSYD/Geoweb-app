@@ -12,7 +12,7 @@ This website is an assignment for the 3rd (Adv. Topics on Geospatial Technologie
 
 ## Libraries required to install:
 - Flask 
-- requests
+- Requests
 You can find both libraries in the `requirements.txt` and install them by running this command `pip3 install -r requirements.txt` in the terminal window.
 
 ## Tools and Resources used:
