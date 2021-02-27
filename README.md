@@ -7,8 +7,8 @@ This website is an assignment for the 3rd (Adv. Topics on Geospatial Technologie
 
 ## System requirement:
 - Any platform you like such as Windows, Linux, and so on. 
-- use any browsers (Firefox, Google Chrome,...) to display the html pages. 
-- python 3.6 or higher
+- Use any browsers (Firefox, Google Chrome,...) to display the html pages. 
+- Python 3.6 or higher
 
 ## Libraries required to install:
 - Flask 
