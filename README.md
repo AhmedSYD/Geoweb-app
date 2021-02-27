@@ -15,7 +15,7 @@ This website is an assignment for the 3rd (Adv. Topics on Geospatial Technologie
 - requests
 You can find both libraries in the `requirements.txt` and install them by running this command `pip3 install -r requirements.txt` in the terminal window.
 
-## Tools used:
+## Tools and Resources used:
 - HTML 5
 - CSS
 - Python flask 
