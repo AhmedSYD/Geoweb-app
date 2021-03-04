@@ -20,11 +20,15 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
 
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier-Leaflet/0.2.6/oms.min.js"></script>
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+        
         <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
         <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+
 
 
 
@@ -38,12 +42,12 @@
                 
             </div>
 
-            <form action="{{url_for('after_searching')}}" method="POST">
+            <form id="form">
 
                 <div class="search_group">
                     
                     <label for="searchFilter">Issue Dates:</label>
-                    <input type="text" name="daterange" value="{{date_value}}" />
+                    <input type="text" name="daterange" value="{{date_value}}" id="daterange"/>
 
                     <button type="submit" id="submit">Search</button>
 
@@ -53,14 +57,21 @@
                 <!-- <button type="submit">Search</button> -->
 
             </form>
+            
 
+            
         </div>
+        <div id="toggleDiv">
+            <input type="submit" id="toggleLayer" value="Traffic">
+        </div>
+        
             
             <!-- <div id="mapid"></div> -->
 
             <script src="{{url_for('static', filename='js/building_permit_search.js') }}"></script>
+
             
-            {% if not(geocode== "") %} 
+            <!-- {% if not(geocode== "") %} 
                <script type="text/javascript" src="{{url_for('static', filename='js/building_permits_after_searching.js') }}"></script>
                <script type="text/javascript">
                  start_marking({{geocode|tojson|safe}});
@@ -71,7 +82,7 @@
             <script type="text/javascript">
                 alert("No building permits for this date range.");
               </script>
-            {% endif %}
+            {% endif %} -->
 
 
             
