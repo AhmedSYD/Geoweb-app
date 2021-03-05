@@ -3,7 +3,7 @@
 ENGO 551 - Adv. Topics on Geospatial Technologies
 
 ## Overview:
-This website is an assignment for the 3rd lab (Adv. Topics on Geospatial Technologies). This lab is mainly dependent on the previous lab, lab 2, in all aspects of the web structure except adding a new map layer to the web page by utilizing Mapbox studio editor. The new layer is completely designed by this editor, including adding traffic incidents dataset to the map which is represented by a heatmap on the map. Users can toggle on/off between two layers, my published layer and the original layer that was used in the previous lab. Moreover, the loading indicator (e.g. the indicator that is used in youtube videos) is integrated with the web page to indicate that system is searching for the candidate markers. 
+This website is an assignment for the 3rd lab (Adv. Topics on Geospatial Technologies). This lab is mainly dependent on the previous lab, [lab 2](https://github.com/AhmedSYD/Geoweb-app), in all aspects of the web structure except adding a new map layer to the web page by utilizing Mapbox studio editor. The new layer is completely designed by this editor, including adding traffic incidents dataset to the map which is represented by a heatmap on the map. Users can toggle on/off between two layers, my published layer and the original layer that was used in the previous lab. Moreover, the loading indicator (e.g. the indicator that is used in youtube videos) is integrated with the web page to indicate that system is searching for the candidate markers. 
 
 ## System requirement:
 - Any platform you like such as Windows, Linux, and so on. 
@@ -82,7 +82,7 @@ and you can see it, also, on my published layer.
 - `static/js/building_permit_search.js`: creating Leaflet map and date range widget algorithm are located in this file. Moreover, all algorithms after searching, such as adding markers to the map, handling overlapping markers, and markers clustering, is included, also.
 
 ## Demo:
-- You can find the demo video for this webpage at this [**Link**](https://www.youtube.com/watch?v=H19i02H_fZ4&ab_channel=ahmedsayed)
+- You can find the demo video for this webpage at this [**Link**]()
 
 
 
