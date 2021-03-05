@@ -12,7 +12,8 @@ var grayLayer=L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
 
 // L.mapbox.accessToken="pk.eyJ1IjoiYWhtZWRzeWQiLCJhIjoiY2tsaWttNXd3MGR6djJwbm0yNjh3dTVtdiJ9.LxSvLSwUs6MZdZxym8V9wA";
 var mylayer=L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-attribution: 'basic',
+attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 maxZoom: 22,
 id: 'ahmedsyd/ckltpaegx2o1b17pt1mn3rruu',
 
@@ -33,13 +34,7 @@ var markers = L.markerClusterGroup();
 
 
 /////////////////////////////////////////////////////////
-function isEmpty(obj) {
-  for(var key in obj) {
-      if(obj.hasOwnProperty(key))
-          return false;
-  }
-  return true;
-}
+
 
 
 
@@ -86,8 +81,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 document.addEventListener("DOMContentLoaded",()=>{
+  var loader = document.querySelector(".loader");
   document.querySelector("#form").onsubmit= ()=>{
-        
+        loader.style.display= "block";
 
         const request= new XMLHttpRequest();
         const daterange= document.querySelector("#daterange").value
@@ -109,11 +105,14 @@ document.addEventListener("DOMContentLoaded",()=>{
           });
           
           markers.clearLayers();
+          mymap.closePopup();
           const json_date=JSON.parse(request.responseText);
           
           console.log(json_date)
-          if (isEmpty(json_date) || (json_date.features.length==0)){
+          if ( !("features" in json_date) || (json_date.features.length==0)){
+            loader.style.display= "none";
             alert("No building permits for this date range.");
+            mymap.setZoom(13);
             return false;
         }
 
@@ -137,6 +136,8 @@ document.addEventListener("DOMContentLoaded",()=>{
           
   
       }
+      loader.style.display= "none";
+      mymap.setZoom(13);
       mymap.addLayer(markers);
 
         };
