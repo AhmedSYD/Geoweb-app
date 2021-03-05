@@ -27,8 +27,14 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 - [Traffic Incidents dataset](https://data.calgary.ca/Transportation-Transit/Traffic-Incidents-Archive-2017/himp-urp7/data)
 
 ## The Map Configuration in Mapbox Studio:
-- Style: basic style 
-- Heatmap: represents the traffic incidents dataset.
+- Dataset: [Traffic Incidents dataset](https://data.calgary.ca/Transportation-Transit/Traffic-Incidents-Archive-2017/himp-urp7/data) is converted to vector tiles to be used in the map.
+- Style: "basic" style and some useless layers is removed to optimize the map such as "satellite layer". 
+- Heatmap: represents the traffic dataset, which red circle represents the highest density of traffic incident at its location on the map, but the outer blue circle represents the lowest density of the traffic. and the heat map configuration are:
+    - Radius of heatmap circle: 20 px
+    - Opasity: 0.61
+ - Building:
+
+![mapbox studio](https://user-images.githubusercontent.com/26576895/110132079-746ffd80-7dd3-11eb-81a1-6bb26e628828.JPG)
 
 ## How to use the webpage:
 * After installing all libraries required in your environment, run `application.py` in any IDE you like.
