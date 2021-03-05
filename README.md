@@ -1,9 +1,9 @@
-# Project2: GeoWeb APP
+# Project3: GeoWeb APP
 
 ENGO 551 - Adv. Topics on Geospatial Technologies
 
 ## Overview:
-This website is an assignment for the 3rd (Adv. Topics on Geospatial Technologies). I created a web mapping application for building permits in Calgary, Canada, which is taken from the Open Calgary API dataset. Users can find all building permits on the map by selecting the issue date range they like. Moreover, some useful information, such as contractor name and community name, of any building permit exists on the pop content of the marker that represents this building permit. To make the map visually appealing, I handled the problem of overlapping markers and made a cluster of the neighboring markers on the map.   
+This website is an assignment for the 3rd lab (Adv. Topics on Geospatial Technologies). This lab is mainly dependent on the previous lab, lab 2, in all aspects of the web structure except adding a new map layer to the web page by utilizing Mapbox studio editor. The new layer is completely designed by this editor, including adding traffic incidents dataset to the map which is represented by a heatmap on the map. Users can toggle on/off between two layers, my published layer and the original layer that was used in the previous lab. Moreover, the loading indicator (e.g. the indicator that is used in youtube videos) is integrated with the web page to indicate that system is searching for the candidate markers. 
 
 ## System requirement:
 - Any platform you like such as Windows, Linux, and so on. 
@@ -15,7 +15,7 @@ This website is an assignment for the 3rd (Adv. Topics on Geospatial Technologie
 - requests <br>
 You can find both libraries in the `requirements.txt` and install them by running this command `pip3 install -r requirements.txt` in the terminal window.
 
-## Tools and Resources used:
+## Tools and Resources are used:
 - HTML 5
 - CSS
 - Python flask 
@@ -23,6 +23,12 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 - [Leaflet](https://leafletjs.com/)
 - [GeoJSON](https://leafletjs.com/examples/geojson/)
 - [Open Calgary API dataset](https://data.calgary.ca/Business-and-Economic-Activity/Building-Permits/c2es-76ed)
+- [Mapbox Studio Editor](https://studio.mapbox.com/)
+- [Traffic Incidents dataset](https://data.calgary.ca/Transportation-Transit/Traffic-Incidents-Archive-2017/himp-urp7/data)
+
+## The Map Configuration in Mapbox Studio:
+- Style: basic style 
+- Heatmap: represents the traffic incidents dataset.
 
 ## How to use the webpage:
 * After installing all libraries required in your environment, run `application.py` in any IDE you like.
@@ -56,7 +62,6 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 - `templates/building_permit_search.html`: has the structure of the webpage and all links of Leaflet code.   
 - `static/styles/building_permit_search.css`: this is a specified style sheet file for `building_permit_search.html` file.
 - `static/js/building_permit_search.js`: creating Leaflet map and date range widget algorithm are located in this file.
-- `static/js/building_permits_after_searching.js`: all algorithms after searching, including adding markers to the map, handling overlapping markers, and markers clustering, exists in this file.
 
 ## Demo:
 - You can find the demo video for this webpage at this [**Link**](https://www.youtube.com/watch?v=H19i02H_fZ4&ab_channel=ahmedsayed)
