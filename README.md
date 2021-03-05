@@ -44,7 +44,7 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 ![lab3_homepage](https://user-images.githubusercontent.com/26576895/110139401-a5ecc700-7ddb-11eb-80d7-5432e3815b91.JPG)
 
 * Looking closely at the image above, you can see a map of the city of Calgary. Above it, a search box is located that is utilized to search for building permits by date range. Moreover, you can switch between this map layer and my publish layer by clicking on **traffic map** below.
-* If you click on the traffic map, you will see that map is replaced with my published map layer, as you see in the image below. If you want to return back to the first layer, click on **Gray map**.
+* If you click on the traffic map, you will see that map is replaced with my published map layer, as you see in the image below. If you want to return back to the first layer, click on **Gray map** on the bottom left of the web page.
 
 ![my_layer](https://user-images.githubusercontent.com/26576895/110140707-0a5c5600-7ddd-11eb-991c-5bb1698fc2fe.JPG)
 
@@ -52,9 +52,17 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 
 ![search](https://user-images.githubusercontent.com/26576895/109386591-476ba880-7904-11eb-99f0-56a40fe3e6b4.JPG)
 
+* During the searching processing, you will see a loader indicator to indicate that the program is still searching for suitable markers.
+
+![indicator](https://user-images.githubusercontent.com/26576895/110146066-ca986d00-7de2-11eb-831a-82058b76e26b.png)
+
 * After searching, you will find markers and clusters of building permits in Calgary, where a marker represents a single building permit, but the cluster represents the group of the neighboring markers (building permits).
 
 ![after_searching](https://user-images.githubusercontent.com/26576895/109386784-d4633180-7905-11eb-991e-0edbccbb7fbc.JPG)
+
+and you can see it, also, on my published layer.
+
+![mylayer_marker](https://user-images.githubusercontent.com/26576895/110147007-df293500-7de3-11eb-8a7a-f32be4314554.JPG)
 
 * By clicking on any cluster, the map will zoom in automatically to get the neighboring markers or other clusters. if you click on any new cluster that is created, the map will zoom in to get other markers and clusters and so on till you get your desired marker. 
 * If you click on any marker, you will get the pop content message that includes all information about building permits, including `issueddate`, `workclassgroup`, `contractorname`, `communityname` and `originaladdress`, as you see below.
