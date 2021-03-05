@@ -32,7 +32,7 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 - Heatmap: represents the traffic dataset, which red circle represents the highest density of traffic incident at its location on the map, but the outer blue circle represents the lowest density of the traffic. and the heat map configuration are:
     - Radius of heatmap circle: 20 px
     - Opasity: 0.61
- - Building:
+ - Buildings: height is added for buildings on the map to be like 3d build.
 
 ![mapbox studio](https://user-images.githubusercontent.com/26576895/110132079-746ffd80-7dd3-11eb-81a1-6bb26e628828.JPG)
 
@@ -41,10 +41,14 @@ You can find both libraries in the `requirements.txt` and install them by runnin
 * You will find a line in the console `Running on <server link>` where `<server link>` is the link of the server of the flask is working on. In my case, the server link is `http://127.0.0.1:5000/`. 
 * Copy the server link and paste it in the link box of any browser you like to go to the website.
 
-![geoweb_first](https://user-images.githubusercontent.com/26576895/109386236-08d4ee80-7902-11eb-98a7-c07aff6c7255.JPG)
+![lab3_homepage](https://user-images.githubusercontent.com/26576895/110139401-a5ecc700-7ddb-11eb-80d7-5432e3815b91.JPG)
 
-* Looking closely at the image above, you can see a map of the city of Calgary. Above it, a search box is located that is utilized to search for building permits by date range. 
-* Choose any date range you want from the date range picker widget, then, click on the **Apply** button on this widget. After that, Click on the **Search** button, as you see below.
+* Looking closely at the image above, you can see a map of the city of Calgary. Above it, a search box is located that is utilized to search for building permits by date range. Moreover, you can switch between this map layer and my publish layer by clicking on **traffic map** below.
+* If you click on the traffic map, you will see that map is replaced with my published map layer, as you see in the image below. If you want to return back to the first layer, click on **Gray map**.
+
+![my_layer](https://user-images.githubusercontent.com/26576895/110140707-0a5c5600-7ddd-11eb-991c-5bb1698fc2fe.JPG)
+
+* For searching for building permits at specific date range, Choose any date range you want from the date range picker widget, then, click on the **Apply** button on this widget. After that, Click on the **Search** button, as you see below.
 
 ![search](https://user-images.githubusercontent.com/26576895/109386591-476ba880-7904-11eb-99f0-56a40fe3e6b4.JPG)
 
