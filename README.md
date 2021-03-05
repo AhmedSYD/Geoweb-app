@@ -79,7 +79,7 @@ and you can see it, also, on my published layer.
 - `application.py`: is responsible for python flask coding and getting JSON data from Open Calgary API dataset and then passes it to the `building_permit_search.html` file.
 - `templates/building_permit_search.html`: has the structure of the webpage and all links of Leaflet code.   
 - `static/styles/building_permit_search.css`: this is a specified style sheet file for `building_permit_search.html` file.
-- `static/js/building_permit_search.js`: creating Leaflet map and date range widget algorithm are located in this file.
+- `static/js/building_permit_search.js`: creating Leaflet map and date range widget algorithm are located in this file. Moreover, all algorithms after searching, such as adding markers to the map, handling overlapping markers, and markers clustering, is included, also.
 
 ## Demo:
 - You can find the demo video for this webpage at this [**Link**](https://www.youtube.com/watch?v=H19i02H_fZ4&ab_channel=ahmedsayed)
